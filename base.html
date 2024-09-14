@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">  <!-- Link the CSS file -->
+</head>
+<body>
+    <header>
+        <h5>Play Well!! ⬇️</h5>
+    </header>
+
+    <!-- This is where child templates will inject their content -->
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer>
+        <p>© 2024 Hangman Game</p>
+    </footer>
+</body>
+</html>

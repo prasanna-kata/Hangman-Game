@@ -1,0 +1,29 @@
+<h2>Hangman Game</h2>
+<p>Word: {{ display_word }}</p>
+
+<p>Attempts Left: {{ attempts }}</p>
+
+{% if game_over %}
+    {% if win %}
+        <p><strong>Congratulations! You win!</strong></p>
+    {% else %}
+        <p><strong>Game Over! You lose. The word was "{{ word }}".</strong></p>
+    {% endif %}
+    <!-- Add a button to restart the game -->
+    <a href="{% url 'home' %}">Restart</a>
+{% else %}
+
+  <form method="POST">
+    {% csrf_token %}
+    <input type="text" name="letter" maxlength="1" required autofocus>
+    <button type="submit">Guess</button>
+  </form>
+{% endif %}
+
+<p>Guessed Letters:
+    {% for letter in guessed_letters %}
+         {{ letter }}
+    {% endfor %}
+</p>
+
+<a href="{% url 'home' %}">Restart</a>
